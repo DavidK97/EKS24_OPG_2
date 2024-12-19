@@ -1,0 +1,50 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+!pragma layout smetana
+
+class Main {
++ static void Main (String [] args)
+
+}
+
+class BookingSystem {
+- Room room
+- Booking booking
+- User user
+- LocalDateTime start
+- LocalDateTime end
+
+
++ boolean isAvailable (Room room, LocalDateTime start, LocalDateTime end)
++ List <Room> findAvailable (int capacity, LocalDateTime start, LocalDateTime end)
++ Booking book (Room room, LocalDateTime start, LocalDateTime end, User user)
++ void cancel (Booking booking)
+}
+
+
+class Booking {
+- Room room
+- User user
+- LocalDateTime start
+- LocalDateTime end
+
+}
+
+class Room {
+- int capacity
+
+}
+
+class User {
+- List <Room> bookedRooms
+- String name
+
+}
+
+Main *-- BookingSystem
+BookingSystem *-- Booking
+Booking *-- User
+Booking *-- Room
+
+@enduml
