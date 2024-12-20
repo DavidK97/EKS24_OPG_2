@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    //TODO Tilføj et ID til hver booking
+
     //TODO Eventuelt lav en TextUI
     //TODO Ryd op i Main
+    //TODO Junit-testing
 
     public static void main (String [] args){
         List<Room> availableRooms;
@@ -53,9 +54,5 @@ public class Main {
         availableRooms = bookingSystem.findAvailable(10, LocalDateTime.of(24, 12, 19, 12, 0),
                 LocalDateTime.of(24, 12, 19, 15, 0));
         System.out.println("Available rooms: " + availableRooms);
-
-
-
-
     }
 }
