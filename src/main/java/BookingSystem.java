@@ -3,17 +3,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookingSystem {
-    private List <Room> roomList;
-    private List <Booking> bookingList;
+    private List<Room> roomList;
+    private List<Booking> bookingList;
+    private List<Room> availableRooms;
 
-    public BookingSystem (){
+    public BookingSystem() {
         this.bookingList = new ArrayList<>();
         this.roomList = new ArrayList<>();
-
     }
 
     //Method that returns true or false if a room is available or not
-    public boolean isAvailable (Room room, LocalDateTime start, LocalDateTime end){
+    public boolean isAvailable(Room room, LocalDateTime start, LocalDateTime end) {
         for (Booking booking : bookingList) {
             if (booking.getRoom().equals(room) && booking.getStart().isBefore(end) && booking.getEnd().isAfter(start)) {
                 return false;
@@ -24,16 +24,16 @@ public class BookingSystem {
 
 
     //Method that returns a List of available rooms with a chosen min. capacity
-    public List <Room> findAvailable (int capacity, LocalDateTime start, LocalDateTime end){
-        List <Room> availableRooms = new ArrayList<>();
-        for (Room room : roomList){
-            if (isAvailable(room, start, end) == true && room.getCapacity() >= capacity){
+    public List<Room> findAvailable(int capacity, LocalDateTime start, LocalDateTime end) {
+        availableRooms = new ArrayList<>();
+        for (Room room : roomList) {
+            if (isAvailable(room, start, end) == true && room.getCapacity() >= capacity) {
                 availableRooms.add(room);
             }
-            return availableRooms;
+        } if (availableRooms.isEmpty()) {
+            System.out.println("There are no available rooms");
         }
-        System.out.println("There are no available rooms");
-        return null;
+        return availableRooms;
     }
 
 
@@ -53,6 +53,13 @@ public class BookingSystem {
     //Method that cancels bookings
     public void cancel (Booking book){
         bookingList.remove(book);
-        System.out.println("Booking cancelled");
+        System.out.println("Booking cancelled: " + book.getRoom().getName());
     }
+
+    public void add(Room room) {
+        roomList.add(room);
+    }
+
+
+
 }

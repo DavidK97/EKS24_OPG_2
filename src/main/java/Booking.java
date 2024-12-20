@@ -29,4 +29,8 @@ public class Booking {
         return user;
     }
 
+    public String toString () {
+        return "Name: " + getRoom().getName() + "| Booked from: " + getStart() + " to " + getEnd() + "| Booked by: " + getUser().getName();
+    }
+
 }

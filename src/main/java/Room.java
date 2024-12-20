@@ -1,14 +1,10 @@
 public class Room {
     private String name;
     private int capacity;
-   // private boolean isAvailable;
-
 
     public Room (String name, int capacity){
         this.name = name;
         this.capacity = capacity;
-        //isAvailable = true;
-
     }
 
     public int getCapacity (){
@@ -17,5 +13,9 @@ public class Room {
 
     public String getName (){
         return name;
+    }
+
+    public String toString () {
+        return "Name: " + getName() + "| Capacity: " + getCapacity();
     }
 }
