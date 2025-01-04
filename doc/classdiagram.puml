@@ -4,22 +4,20 @@
 !pragma layout smetana
 
 class Main {
-+ static void Main (String [] args)
++ static void main (String [] args)
 
 }
 
 class BookingSystem {
-- Room room
-- Booking booking
-- User user
-- LocalDateTime start
-- LocalDateTime end
+- List<Room> roomList;
+- List<Booking> bookingList;
+- List<Room> availableRooms;
 
 
 + boolean isAvailable (Room room, LocalDateTime start, LocalDateTime end)
 + List <Room> findAvailable (int capacity, LocalDateTime start, LocalDateTime end)
 + Booking book (Room room, LocalDateTime start, LocalDateTime end, User user)
-+ void cancel (Booking booking)
++ void cancel (Booking booking, User user)
 }
 
 
@@ -28,10 +26,13 @@ class Booking {
 - User user
 - LocalDateTime start
 - LocalDateTime end
+- int bookingId
+- static in bookingIdCounter
 
 }
 
 class Room {
+- String name
 - int capacity
 
 }

@@ -27,10 +27,11 @@ public class BookingSystem {
     public List<Room> findAvailable(int capacity, LocalDateTime start, LocalDateTime end) {
         availableRooms = new ArrayList<>();
         for (Room room : roomList) {
-            if (isAvailable(room, start, end) == true && room.getCapacity() >= capacity) {
+            if (isAvailable(room, start, end) && room.getCapacity() >= capacity) {
                 availableRooms.add(room);
             }
-        } if (availableRooms.isEmpty()) {
+        }
+        if (availableRooms.isEmpty()) {
             System.out.println("There are no available rooms");
         }
         return availableRooms;
@@ -39,27 +40,25 @@ public class BookingSystem {
 
     //Method that books a room
     public Booking book (Room room, LocalDateTime start, LocalDateTime end, User user) {
-       if (isAvailable(room, start, end) == true) {
+       if (isAvailable(room, start, end)) {
            Booking booking = new Booking(room, start, end, user);
            bookingList.add(booking);
            user.addBooking(booking);
            return booking;
        } else {
-           System.out.println("Booking failed");
+           System.out.println("Booking failed: Room is unavailable");
            return null;
        }
     }
 
-    //Method that cancels bookings
-    public void cancel (Booking book){
+
+    public void cancel (Booking book, User user){
         bookingList.remove(book);
-        System.out.println("Booking cancelled: " + book.getRoom().getName());
+        user.removeBooking(book);
+        System.out.println("Booking cancelled | Booking id: " + book.getBookingId() + "| Room nr: " + book.getRoom().getName());
     }
 
-    public void add(Room room) {
+    public void addRoom(Room room) {
         roomList.add(room);
     }
-
-
-
 }

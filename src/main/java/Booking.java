@@ -5,14 +5,17 @@ public class Booking {
     private User user;
     private LocalDateTime start;
     private LocalDateTime end;
-    private static int bookingId = 0;
+    private int bookingId;
+    private static int bookingIdCounter = 1;
 
     public Booking(Room room, LocalDateTime start, LocalDateTime end, User user){
         this.room = room;
         this.user = user;
         this.start = start;
         this.end = end;
-        bookingId++;
+        this.bookingId = bookingIdCounter;
+        bookingIdCounter++;
+
     }
 
     public Room getRoom (){

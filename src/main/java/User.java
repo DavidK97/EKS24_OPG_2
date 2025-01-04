@@ -14,6 +14,10 @@ public class User {
         bookings.add(booking);
     }
 
+    public void removeBooking(Booking booking) {
+        bookings.remove(booking);
+    }
+
     public String getName () {
         return name;
     }
