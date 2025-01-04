@@ -31,13 +31,15 @@ public class Main {
         Booking book1 = (bookingSystem.book(
                 room1,
                 LocalDateTime.of(24, 12, 19, 14, 30),
-                LocalDateTime.of(24, 12, 19, 17, 30), user1));
+                LocalDateTime.of(24, 12, 19, 17, 30),
+                user1));
         System.out.println(book1);
 
         Booking book2 = (bookingSystem.book(
                 room2,
                 LocalDateTime.of(24, 12, 19, 14, 30),
-                LocalDateTime.of(24, 12, 19, 17, 30), user2));
+                LocalDateTime.of(24, 12, 19, 17, 30),
+                user2));
         System.out.println(book2);
 
 

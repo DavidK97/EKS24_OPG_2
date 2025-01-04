@@ -1,5 +1,4 @@
 import java.time.LocalDateTime;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class BookingSystemTest {
@@ -27,7 +26,6 @@ class BookingSystemTest {
        boolean expected = false;
 
        //Assert
-
         assertEquals(expected, actual);
 
     }
